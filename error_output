@@ -1,0 +1,95 @@
+--------------------------------------------
+   Hyprland Crash Report
+--------------------------------------------
+This was an accident, I swear!
+
+Hyprland received signal 6(ABRT)
+Version: 9958d297641b5c84dcff93f9039d80a5ad37ab00
+Tag: v0.49.0
+Date: Thu May 8 20:15:18 2025
+Flags:
+
+System info:
+	System name: Linux
+	Node name: arch-desktop
+	Release: 6.15.2-arch1-1
+	Version: #1 SMP PREEMPT_DYNAMIC Tue, 10 Jun 2025 21:32:33 +0000
+
+GPU:
+	08:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA102 [GeForce RTX 3080 Lite Hash Rate] [10de:2216] (rev a1) (prog-if 00 [VGA controller])
+
+
+os-release:
+	NAME="Arch Linux"
+	PRETTY_NAME="Arch Linux"
+	ID=arch
+	BUILD_ID=rolling
+	ANSI_COLOR="38;2;23;147;209"
+	HOME_URL="https://archlinux.org/"
+	DOCUMENTATION_URL="https://wiki.archlinux.org/"
+	SUPPORT_URL="https://bbs.archlinux.org/"
+	BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+	PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+	LOGO=archlinux-logo
+Backtrace:
+	# | hyprland(_Z12getBacktracev+0x61) [0x557eca3e95c1]
+		getBacktrace()
+		??:?
+	#1 | hyprland(_ZN14NCrashReporter18createAndSaveCrashEi+0x11b7) [0x557eca33f557]
+		NCrashReporter::createAndSaveCrash(int)
+		??:?
+	#2 | hyprland(+0x210bd8) [0x557eca2b2bd8]
+		CCompositor::getMonitorFromCursor()
+		??:?
+	#3 | /usr/lib/libc.so.6(+0x3def0) [0x7fd56de4def0]
+		??
+		??:0
+	#4 | /usr/lib/libc.so.6(+0x9774c) [0x7fd56dea774c]
+		??
+		??:0
+	#5 | /usr/lib/libc.so.6(gsignal+0x20) [0x7fd56de4ddc0]
+		??
+		??:0
+	#6 | hyprland(_ZN15CHyprOpenGLImpl7initEGLEb+0x2e7) [0x557eca6bec87]
+		CHyprOpenGLImpl::initEGL(bool)
+		??:?
+	#7 | hyprland(_ZN15CHyprOpenGLImplC1Ev+0xc50) [0x557eca6c2a90]
+		CHyprOpenGLImpl::CHyprOpenGLImpl()
+		??:?
+	#8 | hyprland(_ZN11CCompositor12initManagersE18eManagersInitStage+0x10fb) [0x557eca2b747b]
+		CCompositor::initManagers(eManagersInitStage)
+		??:?
+	#9 | hyprland(_ZN11CCompositor10initServerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi+0xed3) [0x557eca2b8ca3]
+		CCompositor::initServer(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int)
+		??:?
+	#1 | hyprland(main+0x875) [0x557eca25a9e5]
+		main
+		??:?
+	#11 | /usr/lib/libc.so.6(+0x276b5) [0x7fd56de376b5]
+		??
+		??:0
+	#12 | /usr/lib/libc.so.6(__libc_start_main+0x89) [0x7fd56de37769]
+		??
+		??:0
+	#13 | hyprland(_start+0x25) [0x557eca2adda5]
+		_start
+		??:?
+
+
+Log tail:
+[LOG] Running on DRMFD: 31
+[LOG] wl_display_add_socket for wayland-1 succeeded with 0
+[LOG] Creating the CHyprOpenGLImpl!
+[LOG] Supported EGL extensions: (16) EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_explicit_device EGL_EXT_platform_wayland EGL_KHR_platform_wayland EGL_EXT_platform_x11 EGL_KHR_platform_x11 EGL_EXT_platform_xcb EGL_MESA_platform_gbm EGL_KHR_platform_gbm EGL_MESA_platform_surfaceless
+[LOG] eglDeviceFromDRMFD: Using device /dev/dri/card1
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to create screen
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to create screen
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to load driver
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): eglInitialize
+[CRITICAL] 
+==========================================================================================
+ASSERTION FAILED! 
+
+EGL: failed to initialize a platform display
+
+at: line 142 in OpenGL.cpp
