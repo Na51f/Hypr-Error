@@ -32,55 +32,87 @@ os-release:
 	PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
 	LOGO=archlinux-logo
 Backtrace:
-	# | hyprland(_Z12getBacktracev+0x61) [0x557eca3e95c1]
+	# | hyprland(_Z12getBacktracev+0x61) [0x564ca7dea5c1]
 		getBacktrace()
 		??:?
-	#1 | hyprland(_ZN14NCrashReporter18createAndSaveCrashEi+0x11b7) [0x557eca33f557]
+	#1 | hyprland(_ZN14NCrashReporter18createAndSaveCrashEi+0x11b7) [0x564ca7d40557]
 		NCrashReporter::createAndSaveCrash(int)
 		??:?
-	#2 | hyprland(+0x210bd8) [0x557eca2b2bd8]
+	#2 | hyprland(+0x210bd8) [0x564ca7cb3bd8]
 		CCompositor::getMonitorFromCursor()
 		??:?
-	#3 | /usr/lib/libc.so.6(+0x3def0) [0x7fd56de4def0]
+	#3 | /usr/lib/libc.so.6(+0x3def0) [0x7f46c764def0]
 		??
 		??:0
-	#4 | /usr/lib/libc.so.6(+0x9774c) [0x7fd56dea774c]
+	#4 | /usr/lib/libc.so.6(+0x9774c) [0x7f46c76a774c]
 		??
 		??:0
-	#5 | /usr/lib/libc.so.6(gsignal+0x20) [0x7fd56de4ddc0]
+	#5 | /usr/lib/libc.so.6(gsignal+0x20) [0x7f46c764ddc0]
 		??
 		??:0
-	#6 | hyprland(_ZN15CHyprOpenGLImpl7initEGLEb+0x2e7) [0x557eca6bec87]
+	#6 | hyprland(_ZN15CHyprOpenGLImpl7initEGLEb+0x2e7) [0x564ca80bfc87]
 		CHyprOpenGLImpl::initEGL(bool)
 		??:?
-	#7 | hyprland(_ZN15CHyprOpenGLImplC1Ev+0xc50) [0x557eca6c2a90]
+	#7 | hyprland(_ZN15CHyprOpenGLImplC1Ev+0xc50) [0x564ca80c3a90]
 		CHyprOpenGLImpl::CHyprOpenGLImpl()
 		??:?
-	#8 | hyprland(_ZN11CCompositor12initManagersE18eManagersInitStage+0x10fb) [0x557eca2b747b]
+	#8 | hyprland(_ZN11CCompositor12initManagersE18eManagersInitStage+0x10fb) [0x564ca7cb847b]
 		CCompositor::initManagers(eManagersInitStage)
 		??:?
-	#9 | hyprland(_ZN11CCompositor10initServerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi+0xed3) [0x557eca2b8ca3]
+	#9 | hyprland(_ZN11CCompositor10initServerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi+0xed3) [0x564ca7cb9ca3]
 		CCompositor::initServer(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int)
 		??:?
-	#1 | hyprland(main+0x875) [0x557eca25a9e5]
+	#1 | hyprland(main+0x875) [0x564ca7c5b9e5]
 		main
 		??:?
-	#11 | /usr/lib/libc.so.6(+0x276b5) [0x7fd56de376b5]
+	#11 | /usr/lib/libc.so.6(+0x276b5) [0x7f46c76376b5]
 		??
 		??:0
-	#12 | /usr/lib/libc.so.6(__libc_start_main+0x89) [0x7fd56de37769]
+	#12 | /usr/lib/libc.so.6(__libc_start_main+0x89) [0x7f46c7637769]
 		??
 		??:0
-	#13 | hyprland(_start+0x25) [0x557eca2adda5]
+	#13 | hyprland(_start+0x25) [0x564ca7caeda5]
 		_start
 		??:?
 
 
 Log tail:
+[ERR] [AQ] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): eglInitialize
+[ERR] [AQ] CDRMRenderer: fail, eglInitialize failed
+[ERR] [AQ] drm: onReady: no renderer for gl formats
+[LOG] [AQ] drm: onReady: connector 127
+[LOG] [AQ] drm: onReady: connector 127 has output name HDMI-A-1
+[LOG] [AQ] Swapchain: Clearing
+[LOG] New aquamarine output with name HDMI-A-1
+[LOG] [AQ] drm: onReady: connector 130
+[LOG] [AQ] drm: onReady: connector 130 has output name DP-1
+[LOG] [AQ] Swapchain: Clearing
+[LOG] New aquamarine output with name DP-1
+[LOG] [AQ] drm: onReady: connector 134
+[LOG] [AQ] drm: onReady: connector 138
+[LOG] [AQ] Supported EGL client extensions: (16) EGL_EXT_platform_base EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_KHR_platform_x11 EGL_EXT_platform_x11 EGL_EXT_platform_device EGL_MESA_platform_surfaceless EGL_EXT_explicit_device EGL_KHR_platform_wayland EGL_EXT_platform_wayland EGL_KHR_platform_gbm EGL_MESA_platform_gbm EGL_EXT_platform_xcb
+[ERR] [AQ] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): eglInitialize
+[ERR] [AQ] CDRMRenderer: fail, eglInitialize failed
+[ERR] [AQ] drm: initMgpu: no renderer
+[ERR] [AQ] drm: Failed initializing mgpu
 [LOG] Running on DRMFD: 31
 [LOG] wl_display_add_socket for wayland-1 succeeded with 0
 [LOG] Creating the CHyprOpenGLImpl!
-[LOG] Supported EGL extensions: (16) EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_explicit_device EGL_EXT_platform_wayland EGL_KHR_platform_wayland EGL_EXT_platform_x11 EGL_KHR_platform_x11 EGL_EXT_platform_xcb EGL_MESA_platform_gbm EGL_KHR_platform_gbm EGL_MESA_platform_surfaceless
+[LOG] Supported EGL extensions: (16) EGL_EXT_platform_base EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_KHR_platform_x11 EGL_EXT_platform_x11 EGL_EXT_platform_device EGL_MESA_platform_surfaceless EGL_EXT_explicit_device EGL_KHR_platform_wayland EGL_EXT_platform_wayland EGL_KHR_platform_gbm EGL_MESA_platform_gbm EGL_EXT_platform_xcb
+[ERR] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
+[ERR] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
 [LOG] eglDeviceFromDRMFD: Using device /dev/dri/card1
 [ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to create screen
 [ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to create screen
