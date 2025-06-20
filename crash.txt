@@ -1,0 +1,127 @@
+--------------------------------------------
+   Hyprland Crash Report
+--------------------------------------------
+Vaxry is going to be upset.
+
+Hyprland received signal 6(ABRT)
+Version: 9958d297641b5c84dcff93f9039d80a5ad37ab00
+Tag: v0.49.0
+Date: Thu May 8 20:15:18 2025
+Flags:
+
+System info:
+	System name: Linux
+	Node name: arch-desktop
+	Release: 6.15.2-arch1-1
+	Version: #1 SMP PREEMPT_DYNAMIC Tue, 10 Jun 2025 21:32:33 +0000
+
+GPU:
+	08:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA102 [GeForce RTX 3080 Lite Hash Rate] [10de:2216] (rev a1) (prog-if 00 [VGA controller])
+
+
+os-release:
+	NAME="Arch Linux"
+	PRETTY_NAME="Arch Linux"
+	ID=arch
+	BUILD_ID=rolling
+	ANSI_COLOR="38;2;23;147;209"
+	HOME_URL="https://archlinux.org/"
+	DOCUMENTATION_URL="https://wiki.archlinux.org/"
+	SUPPORT_URL="https://bbs.archlinux.org/"
+	BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+	PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+	LOGO=archlinux-logo
+Backtrace:
+	# | Hyprland(_Z12getBacktracev+0x61) [0x55c0846855c1]
+		getBacktrace()
+		??:?
+	#1 | Hyprland(_ZN14NCrashReporter18createAndSaveCrashEi+0x11b7) [0x55c0845db557]
+		NCrashReporter::createAndSaveCrash(int)
+		??:?
+	#2 | Hyprland(+0x210bd8) [0x55c08454ebd8]
+		CCompositor::getMonitorFromCursor()
+		??:?
+	#3 | /usr/lib/libc.so.6(+0x3def0) [0x7f2707d28ef0]
+		??
+		??:0
+	#4 | /usr/lib/libc.so.6(+0x9774c) [0x7f2707d8274c]
+		??
+		??:0
+	#5 | /usr/lib/libc.so.6(gsignal+0x20) [0x7f2707d28dc0]
+		??
+		??:0
+	#6 | Hyprland(_ZN15CHyprOpenGLImpl7initEGLEb+0x2e7) [0x55c08495ac87]
+		CHyprOpenGLImpl::initEGL(bool)
+		??:?
+	#7 | Hyprland(_ZN15CHyprOpenGLImplC1Ev+0xc50) [0x55c08495ea90]
+		CHyprOpenGLImpl::CHyprOpenGLImpl()
+		??:?
+	#8 | Hyprland(_ZN11CCompositor12initManagersE18eManagersInitStage+0x10fb) [0x55c08455347b]
+		CCompositor::initManagers(eManagersInitStage)
+		??:?
+	#9 | Hyprland(_ZN11CCompositor10initServerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi+0xed3) [0x55c084554ca3]
+		CCompositor::initServer(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int)
+		??:?
+	#1 | Hyprland(main+0x875) [0x55c0844f69e5]
+		main
+		??:?
+	#11 | /usr/lib/libc.so.6(+0x276b5) [0x7f2707d126b5]
+		??
+		??:0
+	#12 | /usr/lib/libc.so.6(__libc_start_main+0x89) [0x7f2707d12769]
+		??
+		??:0
+	#13 | Hyprland(_start+0x25) [0x55c084549da5]
+		_start
+		??:?
+
+
+Log tail:
+[ERR] [AQ] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): eglInitialize
+[ERR] [AQ] CDRMRenderer: fail, eglInitialize failed
+[ERR] [AQ] drm: onReady: no renderer for gl formats
+[LOG] [AQ] drm: onReady: connector 127
+[LOG] [AQ] drm: onReady: connector 127 has output name HDMI-A-1
+[LOG] [AQ] Swapchain: Clearing
+[LOG] New aquamarine output with name HDMI-A-1
+[LOG] [AQ] drm: onReady: connector 130
+[LOG] [AQ] drm: onReady: connector 130 has output name DP-1
+[LOG] [AQ] Swapchain: Clearing
+[LOG] New aquamarine output with name DP-1
+[LOG] [AQ] drm: onReady: connector 134
+[LOG] [AQ] drm: onReady: connector 138
+[LOG] [AQ] Supported EGL client extensions: (16) EGL_EXT_platform_base EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_KHR_platform_x11 EGL_EXT_platform_x11 EGL_EXT_platform_device EGL_MESA_platform_surfaceless EGL_EXT_explicit_device EGL_KHR_platform_wayland EGL_EXT_platform_wayland EGL_KHR_platform_gbm EGL_MESA_platform_gbm EGL_EXT_platform_xcb
+[ERR] [AQ] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: gbm device using incorrect/incompatible backend
+[ERR] [AQ] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): eglInitialize
+[ERR] [AQ] CDRMRenderer: fail, eglInitialize failed
+[ERR] [AQ] drm: initMgpu: no renderer
+[ERR] [AQ] drm: Failed initializing mgpu
+[LOG] Running on DRMFD: 31
+[LOG] wl_display_add_socket for wayland-1 succeeded with 0
+[LOG] Creating the CHyprOpenGLImpl!
+[LOG] Supported EGL extensions: (16) EGL_EXT_platform_base EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_KHR_platform_x11 EGL_EXT_platform_x11 EGL_EXT_platform_device EGL_MESA_platform_surfaceless EGL_EXT_explicit_device EGL_KHR_platform_wayland EGL_EXT_platform_wayland EGL_KHR_platform_gbm EGL_MESA_platform_gbm EGL_EXT_platform_xcb
+[ERR] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
+[ERR] [EGL] Command eglQueryDevicesEXT errored out with EGL_BAD_ALLOC (0x12291): EGL_BAD_ALLOC error: In eglQueryDevicesEXT: Failed to allocate device list.
+
+[LOG] eglDeviceFromDRMFD: Using device /dev/dri/card1
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to create screen
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to create screen
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): DRI2: failed to load driver
+[ERR] [EGL] Command eglInitialize errored out with EGL_NOT_INITIALIZED (0x12289): eglInitialize
+[CRITICAL] 
+==========================================================================================
+ASSERTION FAILED! 
+
+EGL: failed to initialize a platform display
+
+at: line 142 in OpenGL.cpp
